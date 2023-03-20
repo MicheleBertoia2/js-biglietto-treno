@@ -1,7 +1,18 @@
 
-const distanza = 55 //prompt('A quanti km dista la tua destinazione?');
-const age = 28 //prompt('Inserisci età');
+const distanza = prompt('A quanti km dista la tua destinazione?');
+const age = prompt('Inserisci età');
 
-let prezzoTicket = Math.ceil(distanza * 0.21).toFixed(2) + '\u20AC'; 
+let prezzoTicket = Math.ceil(distanza * 0.21); 
 
-console.log('prezzoTicket', prezzoTicket);
+if(age<=18){
+  prezzoTicket = prezzoTicket -(prezzoTicket*0.20)
+}else if(age>=65){
+  prezzoTicket = prezzoTicket -(prezzoTicket*0.40)
+};
+
+const message = `
+  Il totale per il suo biglietto equivale a \u20AC ${prezzoTicket.toFixed(2)}. <br>
+  Buon viaggio!
+`;
+
+document.getElementById('output').innerHTML = message
